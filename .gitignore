@@ -4,4 +4,5 @@
 .idea/
 .vagrant/
 phpunit.xml
+public/coverage/
 vendor
