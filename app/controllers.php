@@ -2,15 +2,12 @@
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use ZivHashGen\Controller;
 
-$app->get('/', function () use ($app) {
-    return new JsonResponse(
-        [
-            "foo" => "bar"
-        ],
-        JsonResponse::HTTP_OK
-    );
-});
+$app['hash.controller'] = function () use ($app) {
+    return new Controller\HashController();
+};
+$app->get('/api/v1/hash/{algorithm}', "hash.controller:showAction");
 
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
