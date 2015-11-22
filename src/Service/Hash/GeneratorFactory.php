@@ -30,14 +30,14 @@ class GeneratorFactory extends AbstractFactory
     public function packageParams($algorithm, $seed, $salt)
     {
         if (!in_array($algorithm, $this->app['zhg.available_algorithms'])
-            || !$seed = base64_decode($seed, true)
-            || !$salt = base64_decode($salt, true)
+            || !base64_decode($seed, true)
+            || !base64_decode($salt, true)
         ) {
             throw new \InvalidArgumentException("Invalid arguments");
         }
 
-        $seed = filter_var($seed, FILTER_SANITIZE_STRING);
-        $salt = filter_var($salt, FILTER_SANITIZE_STRING);
+        $seed = filter_var(base64_decode($seed), FILTER_SANITIZE_STRING);
+        $salt = filter_var(base64_decode($salt), FILTER_SANITIZE_STRING);
 
         return new HashGeneratorParams($algorithm, $seed, $salt);
     }
