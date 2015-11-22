@@ -47,12 +47,18 @@ class CreationTest extends WebTestCase
         $md5 = [
             'algorithm' => 'md5',
             'seed'      => $seed,
-            'salt'      => $salt,
-            'expected'  => md5($salt . $seed)
+            'salt'      => $salt
+        ];
+
+        $md5Empty = [
+            'algorithm' => 'md5',
+            'seed'      => '',
+            'salt'      => ''
         ];
 
         return [
-            [$md5]
+            [$md5],
+            [$md5Empty]
         ];
     }
 }

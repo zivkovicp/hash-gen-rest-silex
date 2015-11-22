@@ -30,8 +30,8 @@ class GeneratorFactory extends AbstractFactory
     public function packageParams($algorithm, $seed, $salt)
     {
         if (!in_array($algorithm, $this->app['zhg.available_algorithms'])
-            || !base64_decode($seed, true)
-            || !base64_decode($salt, true)
+            || false === base64_decode($seed, true)
+            || false === base64_decode($salt, true)
         ) {
             throw new \InvalidArgumentException("Invalid arguments");
         }

@@ -62,8 +62,16 @@ class Md5GeneratorTest extends \PHPUnit_Framework_TestCase
             'expected'  => md5($salt . $seed)
         ];
 
+        $md5Empty = [
+            'algorithm' => 'md5',
+            'seed'      => '',
+            'salt'      => '',
+            'expected'  => md5('')
+        ];
+
         return [
-            [$md5]
+            [$md5],
+            [$md5Empty]
         ];
     }
 }

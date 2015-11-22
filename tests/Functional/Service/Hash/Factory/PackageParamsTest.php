@@ -46,11 +46,18 @@ class PackageParamsTest extends WebTestCase
         $md5 = [
             'algorithm' => 'md5',
             'seed'      => $seed,
-            'salt'      => $salt,
+            'salt'      => $salt
+        ];
+
+        $md5Empty = [
+            'algorithm' => 'md5',
+            'seed'      => '',
+            'salt'      => ''
         ];
 
         return [
-            [$md5]
+            [$md5],
+            [$md5Empty]
         ];
     }
 }
