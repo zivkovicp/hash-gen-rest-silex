@@ -5,6 +5,7 @@ namespace ZivHashGen\Controller;
 use Silex\Api\ControllerProviderInterface;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class HashController implements ControllerProviderInterface
 {
@@ -24,10 +25,14 @@ class HashController implements ControllerProviderInterface
         }
 
         // TODO: allow user params for seed and salt
+        /** @var Request $request */
+        $request = $app['request_stack']->getCurrentRequest();
+        $seed    = (string)$request->get('seed');
+        $salt    = (string)$request->get('salt');
 
         /** @var \ZivHashGen\Service\Hash\GeneratorFactory $factory */
-        $factory = $app['zhg.hash_generator_factory'];
-        $params = $factory->packageParams($algorithm, '', '');
+        $factory   = $app['zhg.hash_generator_factory'];
+        $params    = $factory->packageParams($algorithm, $seed, $salt);
         $generator = $factory->create($params);
 
         return new JsonResponse(

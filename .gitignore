@@ -5,4 +5,5 @@
 .vagrant/
 phpunit.xml
 public/coverage/
+public/doc.html
 vendor

@@ -26,7 +26,7 @@ Hash resource an algorithm be specified, while seed and salt are optional.
     + Body
 
             {
-                "result": "3858f62230ac3c915f300c664312c63f",
+                "result": "d41d8cd98f00b204e9800998ecf8427e",
                 "algorithm": "md5"
             }
 

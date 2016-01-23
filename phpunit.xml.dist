@@ -14,7 +14,7 @@
     </testsuites>
 
     <php>
-        <const name="APPLICATION_ENV" value="testing" />
+        <const name="APPLICATION_ENV" value="test" />
     </php>
 
     <filter>
@@ -32,9 +32,7 @@
     </filter>
 
     <logging>
-        <log type="coverage-html" target="./public/coverage/report"
-             lowUpperBound="70"
-             highLowerBound="85"/>
+        <log type="coverage-html" target="./public/coverage/report" highLowerBound="70" lowUpperBound="85"/>
         <log type="coverage-clover" target="./public/coverage/coverage.xml"/>
         <log type="junit" target="./public/coverage/logfile.xml" logIncompleteSkipped="false"/>
     </logging>
