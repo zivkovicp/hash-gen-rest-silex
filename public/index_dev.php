@@ -13,12 +13,8 @@ if (isset($_SERVER['HTTP_CLIENT_IP'])
 }
 
 require_once __DIR__ . '/../vendor/autoload.php';
-
+require __DIR__ . '/../config/constants.php';
 Debug::enable();
 
-require __DIR__ . '/../config/constants.php';
-
 $app = require APP_PATH . 'app.php';
-require CONFIG_PATH . 'dev.php';
-require APP_PATH . 'controllers.php';
 $app->run();

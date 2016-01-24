@@ -6,7 +6,6 @@ use ZivHashGen\Controller;
 
 $app->mount('/api/v1/hash', new Controller\HashController());
 
-
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
         return;

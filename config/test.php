@@ -1,7 +1,7 @@
 <?php
 
 // include the prod configuration
-require __DIR__.'/prod.php';
+require __DIR__ . '/production.php';
 
 //$app['session.test'] = true;
 $app['debug'] = true;

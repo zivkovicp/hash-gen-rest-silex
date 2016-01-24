@@ -1,13 +1,11 @@
 <?php
 
 use Silex\Application;
-use Silex\Provider\ServiceControllerServiceProvider;
-use ZivHashGen\Service\Hash\GeneratorFactory;
 
 $app = new Application();
-$app->register(new ServiceControllerServiceProvider());
-$app['zhg.hash_generator_factory'] = function ($app) {
-    return new GeneratorFactory($app);
-};
+
+require CONFIG_PATH . APPLICATION_ENV . '.php';
+require APP_PATH . 'controllers.php';
+require APP_PATH . 'services.php';
 
 return $app;
