@@ -21,7 +21,13 @@ class HashControllerTest extends WebTestCase
         $client = $this->createClient();
         $client->request('GET', '/api/v1/hash/md5');
 
-        // TODO: actually assert something useful
-        $this->assertTrue($client->getResponse()->isOk());
+        $response = $client->getResponse();
+
+        $expected = ["result"    => "d41d8cd98f00b204e9800998ecf8427e",
+                     "algorithm" => "md5"];
+        $actual   = json_decode($response->getContent(), true);
+
+        $this->assertTrue($response->isOk());
+        $this->assertSame($expected, $actual);
     }
 }
